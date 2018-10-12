@@ -9,6 +9,16 @@ Created on Thu Aug 23 16:09:37 2018
 import libdna
 
 def get_loc_from_params(id_map):
+    
+    if 'chr' not in id_map:
+        return None
+        
+    if 's' not in id_map:
+        return None
+        
+    if 'e' not in id_map:
+        return None
+    
     chr = id_map['chr'][0]
     start = id_map['s'][0]
     end = id_map['e'][0]
