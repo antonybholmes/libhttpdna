@@ -19,9 +19,22 @@ def get_loc_from_params(id_map):
     if 'e' not in id_map:
         return None
     
-    chr = id_map['chr'][0]
-    start = id_map['s'][0]
-    end = id_map['e'][0]
+    if isinstance(id_map['chr'], str):
+        chr = id_map['chr']
+    else:
+        chr = id_map['chr'][0]
+        
+    if isinstance(id_map['s'], int):
+        start = id_map['s']
+    else:
+        start = id_map['s'][0]
+        
+    
+    if isinstance(id_map['e'], int):
+        end = id_map['e']
+    else:
+        end = id_map['e'][0]
+        
     
     if start > end:
       start = start ^ end
